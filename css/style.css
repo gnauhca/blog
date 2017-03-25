@@ -203,167 +203,71 @@ body {
 .tags-container-bottom {
   display: block;
 }
-.content pre,
-.content .highlight {
-  background: #272822;
-  margin: 0;
-  padding: 15px 20px;
-  border-style: solid;
-  border-width: 1px 0;
-  overflow: auto;
-  color: #f8f8f2;
-  font-size: 0.85em;
-}
-.content .highlight .gutter pre,
-.content .gist .gist-file .gist-data .line-numbers {
-  color: #666;
-  font-size: 0.85em;
-}
-.content pre,
-.content code {
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
-}
-.content code {
-  color: #f92672;
-  font-size: 0.85em;
-  padding: 0 1em;
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.9em;
+  background: #23241f;
+  font-size: 85%;
   line-height: 1.45;
 }
-.content pre code {
-  background: none;
-  text-shadow: none;
-  padding: 0;
+.hljs,
+.hljs-tag,
+.hljs-subst {
+  color: #f8f8f2;
 }
-.content .highlight pre {
-  border: none;
-  margin: 0;
-  padding: 0;
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
 }
-.content .highlight table {
-  margin: 0;
-  width: auto;
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #ae81ff;
 }
-.content .highlight td {
-  border: none;
-  padding: 0;
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+  color: #a6e22e;
 }
-.content .highlight figcaption {
-  font-size: 0.85em;
-  color: #75715e;
-  line-height: 1em;
-  margin-bottom: 1em;
+.hljs-strong {
+  font-weight: bold;
 }
-.content .highlight figcaption a {
-  float: right;
+.hljs-emphasis {
+  font-style: italic;
 }
-.content .highlight .gutter pre {
-  text-align: right;
-  padding-right: 20px;
-}
-.content .highlight .line {
-  height: 1.53em;
-}
-.content .highlight .line.marked {
-  background: #49483e;
-}
-.content .gist {
-  margin: 0 -20px;
-  border-style: solid;
-  border-color: color-border;
-  border-width: 1px 0;
-  background: #272822;
-  padding: 15px 20px 15px 0;
-}
-.content .gist .gist-file {
-  border: none;
-  margin: 0;
-}
-.content .gist .gist-file .gist-data {
-  background: none;
-  border: none;
-}
-.content .gist .gist-file .gist-data .line-numbers {
-  background: none;
-  border: none;
-  padding: 0 20px 0 0;
-}
-.content .gist .gist-file .gist-data .line-data {
-  padding: 0 !important;
-}
-.content .gist .gist-file .highlight {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.content .gist .gist-file .gist-meta {
-  background: #272822;
-  color: #75715e;
-  font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-shadow: 0 0;
-  padding: 0;
-  margin-top: 1em;
-  margin-left: 20px;
-}
-.content .gist .gist-file .gist-meta a {
-  color: #61d4ff;
-  font-weight: normal;
-}
-.content .gist .gist-file .gist-meta a:hover {
-  text-decoration: underline;
-}
-pre .comment,
-pre .title {
-  color: #75715e;
-}
-pre .variable,
-pre .attribute,
-pre .tag,
-pre .regexp,
-pre .ruby .constant,
-pre .xml .tag .title,
-pre .xml .pi,
-pre .xml .doctype,
-pre .html .doctype,
-pre .css .id,
-pre .css .class,
-pre .css .pseudo {
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
   color: #f92672;
 }
-pre .number,
-pre .preprocessor,
-pre .built_in,
-pre .literal,
-pre .params,
-pre .constant {
-  color: #fd971f;
-}
-pre .class,
-pre .ruby .class .title,
-pre .css .rules .attribute {
-  color: #a6e22e;
-}
-pre .string,
-pre .value,
-pre .inheritance,
-pre .header,
-pre .ruby .symbol,
-pre .xml .cdata {
-  color: #a6e22e;
-}
-pre .css .hexcolor {
-  color: #a1efe4;
-}
-pre .function,
-pre .python .decorator,
-pre .python .title,
-pre .ruby .function .title,
-pre .ruby .title .keyword,
-pre .perl .sub,
-pre .javascript .title,
-pre .coffeescript .title {
+.hljs-symbol,
+.hljs-attribute {
   color: #66d9ef;
 }
-pre .keyword,
-pre .javascript .function {
-  color: #ae81ff;
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #f8f8f2;
+}
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+  color: #e6db74;
+}
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
 }
