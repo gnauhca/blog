@@ -10,6 +10,10 @@
 
     <!--Description-->
     
+        <meta name="description" content="前言不好意思，标题其实是开了个玩笑。大家都知道，Canvas 获取绘画上下文的 api 是 getContext(“2d”)。我第一次看到这个 api 定义的时候，就很自然的认为，既然有 2d 那一定是有 3d 的咯？ 但是我接着我看到了 api 介绍的这句话
+
+提示：在未来，如果 canvas 标">
+    
 
     <!--Author-->
     
@@ -18,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Chaz&#39;s blog"/>
+        <meta property="og:title" content="Canvas getContext(&quot;3d&quot;)?"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>Chaz&#39;s blog</title>
+    <title>Canvas getContext(&quot;3d&quot;)? - Chaz&#39;s blog</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
@@ -99,7 +103,7 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns" style="font-size: 4rem; text-shadow: rgba(0,0,0,.03) 2px 2px, rgba(0,0,0,.0285) 4px 4px, rgba(0,0,0,.0270) 6px 6px, rgba(0,0,0,.0255) 8px 8px, rgba(0,0,0,.0240) 10px 10px, rgba(0,0,0,.0225) 12px 12px, rgba(0,0,0,.0210) 14px 14px, rgba(0,0,0,.0195) 16px 16px, rgba(0,0,0,.0180) 18px 18px, rgba(0,0,0,.0165) 20px 20px, rgba(0,0,0,.0150) 22px 22px, rgba(0,0,0,.0135) 24px 24px, rgba(0,0,0,.0120) 26px 26px, rgba(0,0,0,.0105) 28px 28px, rgba(0,0,0,.0090) 30px 30px, rgba(0,0,0,.0075) 32px 32px, rgba(0,0,0,.0060) 34px 34px, rgba(0,0,0,.0045) 36px 36px, rgba(0,0,0,.0030) 38px 38px, rgba(0,0,0,.0015) 40px 40px">Untitled</h1>
+            <h1 class="f1-l f2-m tc tc-m tl-ns" style="font-size: 3rem; text-shadow: rgba(0,0,0,.03) 2px 2px, rgba(0,0,0,.0285) 4px 4px, rgba(0,0,0,.0270) 6px 6px, rgba(0,0,0,.0255) 8px 8px, rgba(0,0,0,.0240) 10px 10px, rgba(0,0,0,.0225) 12px 12px, rgba(0,0,0,.0210) 14px 14px, rgba(0,0,0,.0195) 16px 16px, rgba(0,0,0,.0180) 18px 18px, rgba(0,0,0,.0165) 20px 20px, rgba(0,0,0,.0150) 22px 22px, rgba(0,0,0,.0135) 24px 24px, rgba(0,0,0,.0120) 26px 26px, rgba(0,0,0,.0105) 28px 28px, rgba(0,0,0,.0090) 30px 30px, rgba(0,0,0,.0075) 32px 32px, rgba(0,0,0,.0060) 34px 34px, rgba(0,0,0,.0045) 36px 36px, rgba(0,0,0,.0030) 38px 38px, rgba(0,0,0,.0015) 40px 40px">Canvas getContext("3d")?</h1>
             <p class="f4 fw1 pab-100px tc tc-m tl-ns">2017-03-13</p>
         </div>
     </div>
@@ -118,11 +122,191 @@
                 <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
                     <!-- Tags Vertical -->
                     
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/blog/tags/canvas/">#canvas</a>
+                            </div>
+                        </div>
+                    
 
                     <!-- Main Post Content -->
-                    
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不好意思，标题其实是开了个玩笑。大家都知道，Canvas 获取绘画上下文的 api 是 getContext(“2d”)。我第一次看到这个 api 定义的时候，就很自然的认为，既然有 2d 那一定是有 3d 的咯？ 但是我接着我看到了 api 介绍的这句话</p>
+<blockquote>
+<p>提示：在未来，如果 canvas 标签扩展到支持 3D 绘图，getContext() 方法可能允许传递一个 “3d” 字符串参数。</p>
+</blockquote>
+<p>what? 我有一句妈卖批不知当讲不当讲… 从学习 canvas 之后我就一直等这个未来，等到后来我学习 three.js… 再等到现在，这个 getContext(“3d”) 还是没有出来。可能是因为越来越多浏览器都已经支持 webgl 的原因把，这个 getContext(“3d”) 有可能再也不会来了。</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/webglsupport.jpg" alt="webglsupport.jpg" title=""> 
+<p>webGL 就是浏览器端的 3D 绘图标准，它直接借助系统显卡来渲染 3D 场景，它能制作的 3D 应用，是普通 canvas 无法相比的。所以，你有复杂 3D 的前端项目，且不考虑 IE 的兼容性的话。不用说，直接使用 webGL 吧。</p>
+<h2 id="不使用-webGL-制作简单的-3D-效果"><a href="#不使用-webGL-制作简单的-3D-效果" class="headerlink" title="不使用 webGL 制作简单的 3D 效果"></a>不使用 webGL 制作简单的 3D 效果</h2><p>然而，有的时候我们只需要实现简单的 3D 效果。在没有学习 webGL 或这方面的框架的情况下，我们其实也可以在 普通的 canvas api 基础上制作出来，而且，我们可以兼容到 IE 9。先来看看，我们都能做些什么效果。</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/pro6summary3d.gif" alt="pro6summary3d.gif" title="">
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/pro6experience3d.gif" alt="pro6experience3d.gif" title="">
+<p>这的两个效果都是工作时简单的 3D 效果需求，没有必要使用 webGL。然而当时我并没有使用今天介绍的办法，因为没有扩展到 3D 坐标去实现所以只能很繁琐的转换成 2D 平面图形分析出来。</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/pro6summaryhard.jpg" alt="pro6summaryhard.jpg" title="">
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/pro6experiencehard.jpg" alt="pro6experiencehard.jpg" title="">
+<p>如果当时能使用今天介绍方法，将可以很简单、在很短时间就能实现。</p>
+<h2 id="素描知识的帮忙"><a href="#素描知识的帮忙" class="headerlink" title="素描知识的帮忙"></a>素描知识的帮忙</h2><p>因为平时以前在学校的时候学习过素描，现在平常也会简单画一点，所以对素描知识我有一点点了解。画画描绘真实世界的三维场景，需要用到透视。这里我当然不介绍太多，简单来说就是我们理解的近大远小。可以用简单的线条连接表示出来。两条平行的直线在无穷远的地方看起来会汇集到一起。而汇集的点，在透视里称作消失点。通过找到这个消失点，还有平行线，就可以画出简单的立体图像。</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/toushi.jpg" alt="toushi.jpg" title="">
+<p>观察上面这幅图像，其实在三维空间，所有的直线都是垂直与画面的，也就是所，如果用坐标描述每条直线上的任一点 v(x,y,z) 他们的 x,y 都是相等的。然而在画面上，离我们眼睛观察点越远的点，就越趋向与眼睛观察点的 x,y 。 那三维空间的坐标 v(x,y,z)，对应到平面的坐标 p(x’,y’) 这个 x,y 会随着 z 的变化，是不是会呈现一定的规律对应到 x’, y’ 呢？</p>
+<h2 id="回忆中学物理课"><a href="#回忆中学物理课" class="headerlink" title="回忆中学物理课"></a>回忆中学物理课</h2><p>我想起了中学学习过的一节物理课。小孔成像</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/xiaokongchengxiang.jpg" alt="xiaokongchengxiang.jpg" title="">
+<p>三维空间的火焰，透过小孔，在二维成像屏上显示了二维的画面。那时候老师教我们，这其实最简单的照相机，和我们眼睛一样，光透过瞳孔，最终到达视网膜，在转换成我们看到的影像。照相机模拟我们的眼睛，所以拍出来的照片和我们眼睛看到的是一样的。</p>
+<p>我们试着把刚才的实验转换到简单的几何坐标中看。</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/xiaokongchengxiangzuobiao1.jpg" alt="xiaokongchengxiangzuobiao1.jpg" title="">
+<p>观察 yz (x=0) 截面，假设小孔为坐标原点 (0,0,0) 成像屏到小孔的距离为 d，图中火焰上的一个点 a(0,y,z) 投射到成像屏对应点 a2，可以求的 a2 在成像屏中的平面坐标：x2 = 0, y2 = y * (d/z)。我天，这么简单就找到了这个对应关系？ 先别急，为了方便开发，我们还需要做一点小转换。</p>
+<h2 id="像-CSS-3D-一样表示坐标"><a href="#像-CSS-3D-一样表示坐标" class="headerlink" title="像 CSS 3D 一样表示坐标"></a>像 CSS 3D 一样表示坐标</h2><p>在 CSS 3D transform 中，我们需要定义 perspective 属性，用来说明观察点到屏幕的距离。如果一个点的 z 轴是 0 那这个点是处于二维点一样的位置，z 轴越大，对应到屏幕上的显示的 xy 就越趋向与。定义 perspective 容器的中心，也就是观察点对应的 xy。我们的目标就是用这种方式表示三维的坐标，然后再套用我们找到的公式，计算出对应到屏幕中的二维坐标是是什么，然后我们就可以用三维坐标描述点的位置，通过简单的转换，真正在 canvas 绘画的时候呢，就是用计算出来的二维坐标。</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/xiaokongchengxiangzuobiao2.jpg" alt="xiaokongchengxiangzuobiao2.jpg" title="">
+<p>上一步求的 a2 对应的平面坐标是倒立的（成像屏的火焰也是倒过来的），我们可以想想在小孔与成像屏前方等距的位置放置显示屏，我们像 CSS 3D 一样，让原点放在显示屏的终点，而小孔，就成了我们的观察点，眼睛所在的位置眼睛离显示屏的距离就是 p(perspective)。由全等三角形的知识可以知道，上图中 a2’ 刚好是 a2 正过来的坐标。这样，一个三维坐标对应到屏幕坐标的关系就找出来了，屏幕坐标完全可以简化三维坐标点和眼睛的连线与屏幕的交点。</p>
+<h2 id="将这个关系用一个缩放值表示"><a href="#将这个关系用一个缩放值表示" class="headerlink" title="将这个关系用一个缩放值表示"></a>将这个关系用一个缩放值表示</h2><p>既然已经描述出来这个关系了，我们再用把它表示成简单的公式。以便直接在代码中完成三维坐标到平面坐标的转换。</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/xiaokongchengxiangzuobiao3.jpg" alt="xiaokongchengxiangzuobiao3.jpg" title="">
+<p>已知观察者到屏幕的距离 p (perspective), 三维空间一个点的坐标 a(x,y,z)，求这个点在屏幕上的坐标。 图中，三维坐标 a 在坐标 xy 平面上的向量长度 d 和该点对应到屏幕上的点 a2’ 在 xy 平面上的向量长度 d’，根据相似三角形，有这样的关系：</p>
+<p>d’/d = p/(p+z)</p>
+<p>x 和 y 的值同理：</p>
+<p>x’/x = p/(p+z)   y’/y = p/(p+z)</p>
+<p>原来，三维空间的点坐标的 x 和 y 对应到屏幕平面上是关于 z 和 p 成比例变化的这个比例值就是</p>
+<p>scale = p/(p+z)</p>
+<p>这个 scale 随着 z 值的变大而变小。这样，就很好的解释了为什么我们看东西会近大院校的原因：</p>
+<img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/xiaokongchengxiangzuobiao4.jpg" alt="xiaokongchengxiangzuobiao4.jpg" title="">
+<h2 id="缩放值的使用实例"><a href="#缩放值的使用实例" class="headerlink" title="缩放值的使用实例"></a>缩放值的使用实例</h2><p>假设我们的眼睛看的就是屏幕中央，我们现在在 y = cvs.height + 5 的 xz 平面上一个正方形区域画一系列的变长为 5 的矩形点。如果不做处理，那么可以想到我们直接使用些点的 x, y 坐标画的点，肯定在画布上是看不到的，因为范围超出了画布。而真实的世界里，我们是可以看到远处的点的，远处的点是趋向与屏幕中央的。</p>
+<h4 id="代码-1："><a href="#代码-1：" class="headerlink" title="代码 1："></a>代码 1：</h4><pre><code class="javascript">let cvs = document.querySelector(&#39;canvas&#39;);
+let ctx = cvs.getContext(&#39;2d&#39;);
+
+class Point {
+    constructor(x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+}
+
+// 根据 perspective 和 z 获取三维坐标对应二维坐标的xy缩放值
+function getScaleByZ(z, p=600) {
+    let scale; 
+    if (z &gt; p) {
+        scale = Infinity;
+    } else {
+        scale = p / (-z + p);
+    }
+    return scale;
+}
+
+function draw() {
+    ctx.clearRect(0,0,cvs.width,cvs.height);
+
+    let rectWidth = 5;
+    points.forEach((point)=&gt;{
+        let scale = getScaleByZ(point.z);
+        let drawX = center.x + (point.x -  center.x) * scale;
+        let drawY = center.y + (point.y -  center.y) * scale;
+        let drawWidth = rectWidth * scale
+
+        ctx.fillStyle = &#39;#abcdef&#39;;
+        ctx.fillRect(drawX, drawY, drawWidth, drawWidth);
+    });
+}
+
+
+let center = new Point(cvs.width/2, cvs.height/2, 0);
+let points = [];
+let xCount = 20; // x 方向的点数
+let zCount = 20; // z 方向的点数
+let step = cvs.width / xCount; // x 方向点之间的间隔
+
+for (let i = -(xCount - 1) / 2; i &lt;= (xCount - 1) / 2; i++) {
+    for (let j = -(zCount - 1) / 2; j &lt;= (zCount - 1) / 2; j++) {
+
+        let x = i;
+        let z = j;
+        let y = 0;
+
+        console.log(x,y,z);
+
+        points.push(
+            new Point((x + xCount/2) * step, cvs.height + 1, z * step)
+        );
+    }
+}
+
+draw();
+</code></pre>
+<h4 id="效果-1："><a href="#效果-1：" class="headerlink" title="效果 1："></a>效果 1：</h4><img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/daimaxiaoguo1.jpg" alt="daimaxiaoguo1.jpg" title="">
+<p>在 draw 方法里，我把三维的坐标转换成了屏幕坐标。并且，边长也根据缩放值重新计算了，远处的点，边长越小。代码最终运行的结果是我们可以看到远处的点，还是有 3D 的感觉的，不过不是很明显。我们改变生成点的逻辑，这一次，我们生成一个球面上的点。</p>
+<h4 id="代码-2："><a href="#代码-2：" class="headerlink" title="代码 2："></a>代码 2：</h4><pre><code class="javascript">let center = new Point(cvs.width/2, cvs.height/2, 0);
+let points = [];
+let circlePointCount = 30;
+let angelStep = Math.PI * 2 / circlePointCount;
+let radius = 10;
+let step = 40;
+
+for (let i = -radius; i &lt;= radius; i++) {
+    let y = i;
+
+    for (let j = 0; j &lt; circlePointCount; j++) {
+
+        let xzRadius = Math.sqrt(radius * radius - y * y);
+        let xzAngel = j * angelStep;
+        let x = xzRadius * Math.cos(xzAngel);
+        let z = xzRadius * Math.sin(xzAngel);
+
+        // console.log(x,y,z);
+
+        points.push(
+            new Point(
+                x * step + cvs.width/2, 
+                y * step + cvs.height/2, 
+                z * step - cvs.width/2
+            )
+        );
+    }
+}
+draw();
+</code></pre>
+<h4 id="效果-2"><a href="#效果-2" class="headerlink" title="效果 2"></a>效果 2</h4><img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/daimaxiaoguo2.jpg" alt="daimaxiaoguo2.jpg" title="">
+<p>或者，直接让它旋转起来。</p>
+<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码 3"></a>代码 3</h4><pre><code class="javascript">function update(angelOffset) {
+    points = [];
+    for (let i = -radius; i &lt;= radius; i++) {
+        let y = i;
+
+        for (let j = 0; j &lt; circlePointCount; j++) {
+
+            let xzRadius = Math.sqrt(radius * radius - y * y);
+            let xzAngel = j * angelStep + angelOffset;
+            let x = xzRadius * Math.cos(xzAngel);
+            let z = xzRadius * Math.sin(xzAngel);
+
+            // console.log(x,y,z);
+            points.push(
+                new Point(
+                    x * step + cvs.width/2, 
+                    y * step + cvs.height/2, 
+                    z * step - cvs.width/2
+                )
+            );
+        }
+    }
+}
+
+(function() {
+    let angelOffset = 0;
+    function tick() {
+        update(angelOffset += 0.006);
+        draw();
+        window.requestAnimationFrame(tick);
+    }
+    tick();
+})();
+</code></pre>
+<h4 id="效果-3"><a href="#效果-3" class="headerlink" title="效果 3"></a>效果 3</h4><img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/daimaxiaoguo3.gif" alt="daimaxiaoguo3.gif" title="">
+<h2 id="F3-js"><a href="#F3-js" class="headerlink" title="F3.js"></a>F3.js</h2><p>因为学过 three.js，three.js 有丰富的三维向量计算 api。我从源码里提取了这些计算向量的 api 再结合这篇文章里总结的转换方法计算二维的坐标写了一个专门在 canvas(2d) 上绘制三维场景的组件，因为是并非真的是调用3D api，所以我取名字叫 F3.js (fake3D) </p>
+<p><a href="https://github.com/gnauhca/f3.js" target="_blank" rel="external">https://github.com/gnauhca/f3.js</a></p>
+<h4 id="使用-F3-js-制作的简单的-Demo："><a href="#使用-F3-js-制作的简单的-Demo：" class="headerlink" title="使用 F3.js 制作的简单的 Demo："></a>使用 F3.js 制作的简单的 Demo：</h4><img src="/blog/2017/03/13/canvas/canvas-getcontext(3d)/daimaxiaoguo4.gif" alt="daimaxiaoguo4.gif" title="">
+
                     
                     <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/blog/tags/canvas/">#canvas</a>
+                        </div>
                     
 
                     <!-- Comments -->
@@ -142,13 +326,25 @@
                     
                     <!-- Widget 2: Categories -->
                     
+                        <div class="mt5 tc tl-l">
+    <h3>分类</h3>
+    
+        <p>
+            <a href="/blog/categories/canvas/">canvas</a>
+        </p>
+    
+</div>
+
+
+                        <!--<hr class="dn-l mw4 black-50 mt5" />-->
+                    
 
                     <!-- Widget 3: Recent Posts -->
                     <div class="mt5 tc tl-l">
     <h3>最新文章</h3>
     
         <p>
-            <a href="/blog/2017/03/13/js/什么？你还在用数组存储一组用布尔值？/">Untitled</a>
+            <a href="/blog/2017/03/13/canvas/canvas-getcontext(3d)/">Canvas getContext(&quot;3d&quot;)?</a>
         </p>
     
         <p>
